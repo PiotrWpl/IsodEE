@@ -1,7 +1,9 @@
 <resources>
     <dimen name="default_padding">10dp</dimen>
 	<dimen name="drawer_width">240dp</dimen>
-	<dimen name="drawer_padding">16dp</dimen>
+	<dimen name="drawer_left_padding">8dp</dimen>
+	<dimen name="drawer_right_padding">16dp</dimen>
+	<dimen name="drawer_icon_size">36dp</dimen>
 	
 	
 	<dimen name="news_item_title">18sp</dimen>

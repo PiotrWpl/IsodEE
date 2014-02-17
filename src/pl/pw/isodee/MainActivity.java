@@ -6,23 +6,29 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	
 	private String[] mNavigationItems;
+	private String[] mNavigationItemsIcons;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView mDrawerList;
@@ -42,6 +48,7 @@ public class MainActivity extends Activity {
         
         mTitle = mDrawerTitle = getTitle();
         mNavigationItems = getResources().getStringArray(R.array.navigation_items);
+        mNavigationItemsIcons = getResources().getStringArray(R.array.navigation_items_icons);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -123,7 +130,7 @@ public class MainActivity extends Activity {
     	// set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
         // set up the drawer's list view with items and click listener
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+        mDrawerList.setAdapter(new DrawerAdapter(this,
                 R.layout.drawer_list_item, mNavigationItems));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -180,6 +187,49 @@ public class MainActivity extends Activity {
         mDrawerList.setItemChecked(position, true);
         setTitle(mNavigationItems[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
+    }
+    
+    public class DrawerAdapter extends ArrayAdapter<String> {
+    	Context context; 
+        int layoutResourceId;    
+        String data[] = null;
+        
+        public DrawerAdapter(Context context, int layoutResourceId, String[] data) {
+            super(context, layoutResourceId, data);
+            this.layoutResourceId = layoutResourceId;
+            this.context = context;
+            this.data = data;
+        }
+        
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+        	View row = convertView;
+        	DrawerHolder holder = null;
+        	
+        	if (row == null) {
+        		LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+                row = inflater.inflate(layoutResourceId, parent, false);
+
+                holder = new DrawerHolder();
+                holder.title = (TextView)row.findViewById(R.id.drawer_title);
+                holder.icon = (ImageView)row.findViewById(R.id.drawer_icon);
+            	row.setTag(holder);
+            } else {
+                holder = (DrawerHolder)row.getTag();
+            }
+
+            String item = data[position];
+            holder.title.setText(item);
+            holder.icon.setImageResource(getResources().getIdentifier(mNavigationItemsIcons[position], "drawable", getContext().getPackageName()));
+//            holder.date.setText(news.date);
+            
+        	return row;
+        }
+        
+        private class DrawerHolder {
+    		TextView title;
+        	ImageView icon;
+        }
     }
 
     @Override
