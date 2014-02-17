@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="@dimen/default_padding"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:gravity="center"
+android:orientation="vertical" >
+
+<ListView
+    android:paddingLeft="@dimen/default_padding"
+    android:paddingRight="@dimen/default_padding"
+    android:paddingBottom="@dimen/default_padding"
     android:clipToPadding="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,4 +15,75 @@
     android:dividerHeight="1dp"
     android:divider="@android:color/white"
     android:fastScrollEnabled="true"
-    android:fastScrollAlwaysVisible="true" />
+    android:fastScrollAlwaysVisible="true"
+    android:layout_below="@+id/teachers_header"  />
+
+<LinearLayout
+    android:paddingLeft="@dimen/default_padding"
+    android:paddingRight="@dimen/default_padding"
+    android:paddingTop="@dimen/default_padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:layout_alignParentTop="true"
+    android:orientation="horizontal"
+    android:id="@+id/teachers_header"
+    android:weightSum="9" >
+    
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/teacher_position_header"
+        android:text="@string/teacher_position_header"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/news_item_date"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/default_padding"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+    	android:background="@drawable/green_gradient"
+        android:gravity="center_vertical" />
+    
+    <TextView
+        android:layout_weight="3"
+        android:id="@+id/teacher_name_header"
+        android:text="@string/teacher_name_header"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/news_item_date"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+    	android:background="@drawable/green_gradient"
+        android:gravity="center_vertical" />
+    
+    <TextView
+        android:layout_weight="3"
+        android:id="@+id/teacher_title_header"
+        android:text="@string/teacher_title_header"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/news_item_date"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+    	android:background="@drawable/green_gradient"
+        android:gravity="center_vertical" />
+    
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/teacher_department_header"
+        android:text="@string/teacher_department_header"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/news_item_date"
+        android:paddingTop="@dimen/default_padding"
+        android:paddingBottom="@dimen/default_padding"
+        android:paddingRight="@dimen/default_padding"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+    	android:background="@drawable/green_gradient" />
+
+</LinearLayout>
+</RelativeLayout>

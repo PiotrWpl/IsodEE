@@ -1,5 +1,7 @@
 package pl.pw.isodee.models;
 
+import java.util.Locale;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

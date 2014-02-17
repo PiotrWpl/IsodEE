@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -23,7 +24,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -45,6 +48,7 @@ public class MainActivity extends Activity {
         
         ContentGenerator.newsListItems(theApplication.getContent());
         ContentGenerator.newsContentItems(theApplication.getContent());
+        ContentGenerator.newTeacherItems(theApplication.getContent());
         
         mTitle = mDrawerTitle = getTitle();
         mNavigationItems = getResources().getStringArray(R.array.navigation_items);
@@ -86,6 +90,27 @@ public class MainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+            	Fragment fragment = TeachersFragment.newInstance(newText);
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                return true;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
 	}
 	/* Called whenever we call invalidateOptionsMenu() */
@@ -236,4 +261,23 @@ public class MainActivity extends Activity {
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//    	Log.i("aa", "newIntent");
+//        setIntent(intent);
+//        handleIntent(intent);
+//    }
+//
+//    private void handleIntent(Intent intent) {
+//    	Log.i("aa", "handleIntent");
+//        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+//        	Log.i("aa", "handleIntent equal");
+//          String query = intent.getStringExtra(SearchManager.QUERY);
+//      	
+//          Fragment fragment = TeachersFragment.newInstance(query);
+//          FragmentManager fragmentManager = getFragmentManager();
+//          fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+//          // Do work using string
+//        }
+//    }
 }

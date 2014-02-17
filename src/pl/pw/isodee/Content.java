@@ -13,6 +13,7 @@ import pl.pw.isodee.models.NewsListItem;
 //import pl.pw.isodmobile.model.LecturerInfo;
 //import pl.pw.isodmobile.model.LecturersList;
 //import pl.pw.isodmobile.model.NewsList;
+import pl.pw.isodee.models.Teacher;
 
 
 public class Content {
@@ -20,10 +21,12 @@ public class Content {
 //	private Hashtable<String, LecturersList> lecturers;
 //	private Hashtable<String, LecturerInfo> lecturersInfo;
 	private Hashtable<String, NewsListItem> newsList;
+	private Hashtable<String, Teacher> teachersList;
 
 	public Content() {
 		newsContents = new Hashtable<String, NewsContent>();
 		newsList = new Hashtable<String, NewsListItem>();
+		teachersList = new Hashtable<String, Teacher>();
 //		lecturers = new Hashtable<String, LecturersList>();
 //		lecturersInfo = new Hashtable<String, LecturerInfo>();
 	}
@@ -45,6 +48,14 @@ public class Content {
 	
 	public NewsListItem getNewsByPos(int pos) {
 		return newsList.get("" + pos);
+	}
+	
+	public Teacher getTeacherByPos(int pos) {
+		return teachersList.get("" + pos);
+	}
+	
+	public int getTeachersLength() {
+		return teachersList.size();
 	}
 	
 	public int getNewsLength () {
@@ -75,5 +86,11 @@ public class Content {
 //	public LecturersList getLecturerByPos(int lecturerId) {
 //		return lecturers.get("" + lecturerId);
 //	}
+
+	public void putTeacher(int idx, Teacher teacher) {
+		// TODO Auto-generated method stub
+		teachersList.put("" + idx, teacher);
+		
+	}
 	
 }

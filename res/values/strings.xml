@@ -59,6 +59,17 @@
     <string name="news_last_modified">Last modified:&#160;</string>
     <string name="news_last_modified_link">&#160;by&#160;</string>
     
+    <!-- Teachers -->
+    <string name="teacher_position_header">L.p.</string>
+    <string name="teacher_name_header">Firstname and lastname:</string>
+    <string name="teacher_title_header">Title</string>
+    <string name="teacher_department_header">Organizational unit</string>
+    
+    <!-- Search -->
+    <string name="search_hint">Imie i nazwisko</string>
+    <string name="search_global_description">bbb</string>
+    <string name="search_label">aaaa</string>
+    
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_language">Change language</string>
