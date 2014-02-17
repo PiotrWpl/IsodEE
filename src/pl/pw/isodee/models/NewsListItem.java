@@ -17,7 +17,7 @@ public class NewsListItem {
 	
 	public NewsListItem(JSONObject o) throws JSONException {
 //		index = o.getInt("x");
-		title = o.getString("t");
+		title = capitalizeFirstLetter(o.getString("t"));
 		date = o.getString("d");
 //		timestamp = o.getLong("d");
 //		updateTimestamp = o.optLong("ud", 0);
@@ -30,7 +30,7 @@ public class NewsListItem {
 	
 	public NewsListItem(String title, String date){
 //		index = o.getInt("x");
-		this.title = title;
+		this.title = capitalizeFirstLetter(title);
 		this.date = date;
 //		timestamp = o.getLong("d");
 //		updateTimestamp = o.optLong("ud", 0);
@@ -67,5 +67,13 @@ public class NewsListItem {
 
 	public String getHtmlContent() {
 		return htmlContent;
+	}
+	
+	private String capitalizeFirstLetter(String text) {
+		if (text.length() > 0) {
+            text = String.valueOf(text.charAt(0)).toUpperCase() + text.subSequence(1, text.length());
+            return text;
+		}
+		return "";
 	}
 }

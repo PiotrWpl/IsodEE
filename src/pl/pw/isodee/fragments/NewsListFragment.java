@@ -1,5 +1,6 @@
 package pl.pw.isodee.fragments;
 
+import android.R.bool;
 import android.app.ListFragment;
 import pl.pw.isodee.MainActivity;
 import pl.pw.isodee.NewsActivity;
@@ -12,6 +13,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout.LayoutParams;
@@ -96,6 +100,10 @@ public class NewsListFragment extends ListFragment {
             holder.title.setText(news.title);
             holder.date.setText(news.date);
             
+            if (news.notAnimated) {
+            	news.notAnimated = false;
+	            startAnimation(row);
+            }
         	return row;
         }
         
@@ -108,6 +116,7 @@ public class NewsListFragment extends ListFragment {
     public class News {
     	private String title;
         private String date;
+        private boolean notAnimated = true;
         
         public News(){
             super();
@@ -118,5 +127,17 @@ public class NewsListFragment extends ListFragment {
             this.date = date;
             this.title = title;
         }
+    }
+    
+    private void startAnimation (View row) {
+    	AlphaAnimation alphaAnimation = new AlphaAnimation(0.6f, 1.0f);
+        alphaAnimation.setDuration(300);
+        AnimationSet animationSet = new AnimationSet(false);
+        animationSet.addAnimation(alphaAnimation);
+        
+        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 200, 0);
+        translateAnimation.setDuration(400);
+        animationSet.addAnimation(translateAnimation);
+        row.startAnimation(animationSet);
     }
 }

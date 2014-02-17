@@ -221,7 +221,6 @@ public class MainActivity extends Activity {
             String item = data[position];
             holder.title.setText(item);
             holder.icon.setImageResource(getResources().getIdentifier(mNavigationItemsIcons[position], "drawable", getContext().getPackageName()));
-//            holder.date.setText(news.date);
             
         	return row;
         }
