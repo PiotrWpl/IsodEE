@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Shared -->
+    <string name="app_name">ISOD Portal</string>
+    <string name="KEY_PREF_SELECTED_LANGUAGE">pref_language</string>
+    <string name="pref_default_language">pl_PL</string>
+    
+    <!-- Shared Arrays -->
+    <string-array name="navigation_items">
+        <item>@string/news_title</item>
+        <item>@string/schedule_title</item>
+        <item>@string/syllabuses_title</item>
+        <item>@string/teachers_title</item>
+        <item>@string/defended_title</item>
+        <item>@string/topic_propositions_title</item>
+        <item>@string/study_programmes_title</item>
+        <item>@string/documents_title</item>
+    </string-array>
+    
+    <string-array name="pref_selectedLanguage_entries">
+        <item>@string/settings_language_english</item>
+        <item>@string/settings_language_polish</item>
+    </string-array>
+    
+     <string-array name="pref_selectedLanguage_values">
+        <item>en_US</item>
+        <item>pl_PL</item>
+    </string-array>
+    
+    <!-- 
+    ########################
+    ####   TO LOCALIZE   ###
+    ########################
+     -->
+    
+    <!-- Navigation -->
+    <string name="news_title">News and announcements</string>
+    <string name="schedule_title">Schedule</string>
+    <string name="syllabuses_title">Course syllabuses</string>
+    <string name="teachers_title">Teachers</string>
+    <string name="defended_title">Defended dissertations</string>
+    <string name="topic_propositions_title">Topic propositions</string>
+    <string name="study_programmes_title">Study programmes</string>
+    <string name="documents_title">Documents to download</string>
+    
+    <!-- News -->
+    <string name="news_publication_date">Published:&#160;</string>
+    <string name="news_last_modified">Last modified:&#160;</string>
+    <string name="news_last_modified_link">&#160;by&#160;</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Change language</string>
+    <string name="settings_language_polish">Polish</string>
+    <string name="settings_language_english">English</string>
+    
+    <!-- Others -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+</resources>

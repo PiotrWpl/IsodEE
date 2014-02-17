@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Navigation -->
+    <string name="news_title">Aktualności i ogłoszenia</string>
+    <string name="schedule_title">Plan zajęć</string>
+    <string name="syllabuses_title">Karty przedmiotów</string>
+    <string name="teachers_title">Wykładowcy</string>
+    <string name="defended_title">Obronione prace dyplomowe</string>
+    <string name="topic_propositions_title">Propozycja tematów prac i projektów</string>
+    <string name="study_programmes_title">Programy studiów</string>
+    <string name="documents_title">Dokumenty do pobrania</string>
+    
+    <!-- News -->
+    <string name="news_publication_date">Data publikacji:&#160;</string>
+    <string name="news_last_modified">Ostatnia modyfikacja:&#160;</string>
+    <string name="news_last_modified_link">&#160;przez&#160;</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Ustawienia</string>
+    <string name="settings_language">Zmień język</string>
+    <string name="settings_language_polish">Polski</string>
+    <string name="settings_language_english">Angielski</string>
+    
+    <!-- Others -->
+    <string name="drawer_open">Otwórz boczną nawigację</string>
+    <string name="drawer_close">Zamknij boczną nawigację</string>
+</resources>
