@@ -54,6 +54,9 @@
     <string name="settings_language_polish">Polish</string>
     <string name="settings_language_english">English</string>
     
+    <!-- About -->
+    <string name="about_title">About</string>
+    
     <!-- Others -->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

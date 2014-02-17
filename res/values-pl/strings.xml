@@ -21,6 +21,9 @@
     <string name="settings_language_polish">Polski</string>
     <string name="settings_language_english">Angielski</string>
     
+    <!-- About -->
+    <string name="about_title">O aplikacji</string>
+    
     <!-- Others -->
     <string name="drawer_open">Otwórz boczną nawigację</string>
     <string name="drawer_close">Zamknij boczną nawigację</string>
