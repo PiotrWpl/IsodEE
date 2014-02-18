@@ -49,7 +49,7 @@ public class TeachersFragment extends ListFragment {
 	    		}
 	  		}
 	         
-	    	((TeacherAdapter)lv.getAdapter()).setData(teachersFiltered.toArray(new Teacher[teachersFiltered.size()]));
+	    	((TeacherAdapter)lv.getAdapter()).setData(teachersFiltered);
 	    	((TeacherAdapter)lv.getAdapter()).notifyDataSetChanged();
     	}
     }
@@ -59,9 +59,9 @@ public class TeachersFragment extends ListFragment {
         	
         View contentView = (View)inflater.inflate(R.layout.teachers_list, container, false);
            
-        Teacher teachers[] = new Teacher[theActivity.theApplication.getContent().getTeachersLength()];
+        ArrayList<Teacher> teachers = new ArrayList<Teacher>();
         for (int i = 0; i < theActivity.theApplication.getContent().getTeachersLength(); i++) {
-        	teachers[i] = theActivity.theApplication.getContent().getTeacherByPos(i);
+        	teachers.add(theActivity.theApplication.getContent().getTeacherByPos(i));
 		}
         
         TeacherAdapter mAdapter = new TeacherAdapter(getActivity(), R.layout.teacher_fragment, teachers);
@@ -86,13 +86,13 @@ public class TeachersFragment extends ListFragment {
     public class TeacherAdapter extends ArrayAdapter<Teacher> {
     	Context context; 
         int layoutResourceId;    
-        Teacher data[] = null;
+        ArrayList<Teacher> data = null;
         
-        public void setData(Teacher[] data) {
+        public void setData(ArrayList<Teacher> data) {
         	this.data = data;
         }
         
-        public TeacherAdapter(Context context, int layoutResourceId, Teacher[] data) {
+        public TeacherAdapter(Context context, int layoutResourceId, ArrayList<Teacher> data) {
             super(context, layoutResourceId, data);
             this.layoutResourceId = layoutResourceId;
             this.context = context;
@@ -101,7 +101,7 @@ public class TeachersFragment extends ListFragment {
         
         @Override
         public int getCount() {
-        	return data.length;
+        	return data.size();
         }
         
         @Override
@@ -123,7 +123,7 @@ public class TeachersFragment extends ListFragment {
                 holder = (TeacherHolder)row.getTag();
             }
 
-            Teacher teacher = data[position];
+            Teacher teacher = data.get(position);
             holder.position.setText(teacher.getLp());
             holder.name.setText(teacher.getName());
             holder.title.setText(teacher.getTitle());

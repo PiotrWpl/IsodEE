@@ -66,7 +66,6 @@ public class Content {
 		try {
 			newsList.put("" + pos, new NewsListItem(obj));
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -88,9 +87,7 @@ public class Content {
 //	}
 
 	public void putTeacher(int idx, Teacher teacher) {
-		// TODO Auto-generated method stub
 		teachersList.put("" + idx, teacher);
-		
 	}
 	
 }

@@ -33,7 +33,6 @@ public class NewsActivity extends Activity {
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		getActionBar().setTitle(getString(R.string.news_title));
 	}

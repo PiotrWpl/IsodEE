@@ -1,14 +1,11 @@
 package pl.pw.isodee.fragments;
 
-import android.R.bool;
 import android.app.ListFragment;
 import pl.pw.isodee.MainActivity;
-import pl.pw.isodee.NewsActivity;
 import pl.pw.isodee.R;
 import pl.pw.isodee.models.NewsListItem;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +15,6 @@ import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
