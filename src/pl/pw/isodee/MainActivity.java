@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +27,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
 	public IsodEEApplication theApplication;
+	private SearchView searchView;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,32 +86,37 @@ public class MainActivity extends Activity {
         // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
-
+    
+    private void onQuery(String query) {
+    	Fragment currentFragment = (Fragment) getFragmentManager().findFragmentById(R.id.content_frame);
+    	if (currentFragment instanceof TeachersFragment) {
+    		((TeachersFragment)currentFragment).useFilter(query);
+    	}
+    }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
         // Get the SearchView and set the searchable configuration
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-        // Assumes current activity is the searchable activity
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-            	Fragment fragment = TeachersFragment.newInstance(newText);
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                return true;
-            }
-        });
-
+	    SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+	    searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+	    // Assumes current activity is the searchable activity
+	    searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+	    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+	
+	        @Override
+	        public boolean onQueryTextSubmit(String query) {
+	            return false;
+	        }
+	
+	        @Override
+	        public boolean onQueryTextChange(String newText) {
+	        	Log.i("QUERY", newText);
+	        	onQuery(newText);
+	            return true;
+	        }
+	    });
+		    
         return super.onCreateOptionsMenu(menu);
 	}
 	/* Called whenever we call invalidateOptionsMenu() */
@@ -151,6 +157,13 @@ public class MainActivity extends Activity {
 		this.startActivity(myIntent);
     }
     
+    private void clearSearchView () {
+    	if (searchView != null) {
+        	searchView.setQuery("", false);
+        	searchView.clearFocus();
+        }
+    }
+    
     private void initNavigationDrawer () {
     	// set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, Gravity.START);
@@ -169,11 +182,13 @@ public class MainActivity extends Activity {
                 R.string.drawer_close  /* "close drawer" description for accessibility */
                 ) {
             public void onDrawerClosed(View view) {
+                clearSearchView();
                 getActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
+                clearSearchView();
                 getActionBar().setTitle(mDrawerTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
@@ -261,23 +276,4 @@ public class MainActivity extends Activity {
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//    	Log.i("aa", "newIntent");
-//        setIntent(intent);
-//        handleIntent(intent);
-//    }
-//
-//    private void handleIntent(Intent intent) {
-//    	Log.i("aa", "handleIntent");
-//        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-//        	Log.i("aa", "handleIntent equal");
-//          String query = intent.getStringExtra(SearchManager.QUERY);
-//      	
-//          Fragment fragment = TeachersFragment.newInstance(query);
-//          FragmentManager fragmentManager = getFragmentManager();
-//          fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-//          // Do work using string
-//        }
-//    }
 }

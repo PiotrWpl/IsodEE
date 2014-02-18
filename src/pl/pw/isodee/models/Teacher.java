@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class Teacher {
 
-	private int lp;
+	private String lp;
 	private String title;
 	private String department;
 	private String name;
@@ -15,7 +15,7 @@ public class Teacher {
 	}
 	
 	public Teacher (int lp, String name, String title, String department) {
-		this.lp = lp;
+		this.lp = "" + lp;
 		this.title = title;
 		this.name = name;
 		this.department = department;
@@ -29,7 +29,7 @@ public class Teacher {
 		return department;
 	}
 	
-	public int getLp() {
+	public String getLp() {
 		return lp;
 	}
 	
