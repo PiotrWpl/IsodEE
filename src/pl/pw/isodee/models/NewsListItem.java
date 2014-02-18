@@ -16,6 +16,7 @@ public class NewsListItem {
 	private long updateTimestamp;
 	private String author;
 	private String htmlContent;
+    private boolean notAnimated = true;
 	
 	public NewsListItem(JSONObject o) throws JSONException {
 //		index = o.getInt("x");
@@ -41,6 +42,14 @@ public class NewsListItem {
 //			htmlContent = o.getString("c");
 //		}
 		
+	}
+	
+	public boolean getNotAnimated() {
+		return notAnimated;
+	}
+	
+	public void setNotAnimated(boolean notAnimated) {
+		this.notAnimated = notAnimated;
 	}
 	
 	public String getDate() {

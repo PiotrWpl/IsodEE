@@ -38,14 +38,12 @@ public class NewsListFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         	
         lv = (ListView)inflater.inflate(R.layout.news_list, container, false);
-//        lv.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         
         int newsListSize = theActivity.theApplication.getContent().getNewsLength();
         
-        News fromNews[] = new News[newsListSize];
+        NewsListItem fromNews[] = new NewsListItem[newsListSize];
         for (int i = 0; i < newsListSize; i++) {
-        	NewsListItem news = theActivity.theApplication.getContent().getNewsByPos(i);
-			fromNews[i] = new News(news.getTitle(), news.getDate());
+			fromNews[i] = theActivity.theApplication.getContent().getNewsByPos(i);
 		}
 
         NewsAdapter mAdapter = new NewsAdapter(getActivity(), R.layout.news_fragment, fromNews);
@@ -67,12 +65,12 @@ public class NewsListFragment extends ListFragment {
 		});
 	}
     
-    public class NewsAdapter extends ArrayAdapter<News> {
+    public class NewsAdapter extends ArrayAdapter<NewsListItem> {
     	Context context; 
         int layoutResourceId;    
-        News data[] = null;
+        NewsListItem data[] = null;
         
-        public NewsAdapter(Context context, int layoutResourceId, News[] data) {
+        public NewsAdapter(Context context, int layoutResourceId, NewsListItem[] data) {
             super(context, layoutResourceId, data);
             this.layoutResourceId = layoutResourceId;
             this.context = context;
@@ -96,12 +94,12 @@ public class NewsListFragment extends ListFragment {
                 holder = (NewsHolder)row.getTag();
             }
 
-            News news = data[position];
-            holder.title.setText(news.title);
-            holder.date.setText(news.date);
+            NewsListItem news = data[position];
+            holder.title.setText(news.getTitle());
+            holder.date.setText(news.getDate());
             
-            if (news.notAnimated) {
-            	news.notAnimated = false;
+            if (news.getNotAnimated()) {
+            	news.setNotAnimated(false);
 	            startAnimation(row);
             }
         	return row;
@@ -110,22 +108,6 @@ public class NewsListFragment extends ListFragment {
         private class NewsHolder {
     		TextView title;
         	TextView date;
-        }
-    }
-    
-    public class News {
-    	private String title;
-        private String date;
-        private boolean notAnimated = true;
-        
-        public News(){
-            super();
-        }
-    	    
-        public News(String title, String date) {
-            super();
-            this.date = date;
-            this.title = title;
         }
     }
     
