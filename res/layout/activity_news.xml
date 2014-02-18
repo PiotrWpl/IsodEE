@@ -10,7 +10,8 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:background="@color/front_background"
-	    android:layout_margin="@dimen/default_padding" >
+	    android:layout_margin="@dimen/default_padding"
+		android:minHeight="600dp" >
 		
 	    <TextView
 	        android:layout_width="match_parent"
@@ -46,7 +47,7 @@
 		    android:layout_below="@id/news_updated"
 		    android:id="@+id/news_content"
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content" />
+		    android:layout_height="wrap_content"/>
 		
 	</RelativeLayout>
 </ScrollView>

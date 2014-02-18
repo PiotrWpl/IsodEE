@@ -15,6 +15,15 @@
     <string name="news_last_modified">Ostatnia modyfikacja:&#160;</string>
     <string name="news_last_modified_link">&#160;przez&#160;</string>
     
+    <!-- Teachers -->
+    <string name="teacher_position_header">L.p.</string>
+    <string name="teacher_name_header">Imię i nazwisko</string>
+    <string name="teacher_title_header">Tytuł</string>
+    <string name="teacher_department_header">Jednostka organizacyjna</string>
+    
+    <!-- Search -->
+    <string name="search_hint">Wykładowca, jednostka organizacyjna</string>
+    
     <!-- Settings -->
     <string name="settings_title">Ustawienia</string>
     <string name="settings_language">Zmień język</string>

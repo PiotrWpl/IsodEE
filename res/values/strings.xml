@@ -61,14 +61,12 @@
     
     <!-- Teachers -->
     <string name="teacher_position_header">L.p.</string>
-    <string name="teacher_name_header">Firstname and lastname:</string>
+    <string name="teacher_name_header">Firstname and lastname</string>
     <string name="teacher_title_header">Title</string>
     <string name="teacher_department_header">Organizational unit</string>
     
     <!-- Search -->
-    <string name="search_hint">Imie i nazwisko</string>
-    <string name="search_global_description">bbb</string>
-    <string name="search_label">aaaa</string>
+    <string name="search_hint">Teacher, organizational unit</string>
     
     <!-- Settings -->
     <string name="settings_title">Settings</string>
