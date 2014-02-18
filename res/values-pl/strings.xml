@@ -19,9 +19,10 @@
     <string name="teacher_position_header">L.p.</string>
     <string name="teacher_name_header">Imię i nazwisko</string>
     <string name="teacher_title_header">Tytuł</string>
-    <string name="teacher_department_header">Jednostka organizacyjna</string>
+    <string name="teacher_department_header">Jednostka organ.</string>
     
     <!-- Search -->
+    <string name="search">Szukaj</string>
     <string name="search_hint">Wykładowca, jednostka organizacyjna</string>
     
     <!-- Settings -->

@@ -29,6 +29,14 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	public static final int VIEW_NEWS = 0;
+	public static final int VIEW_SCHEDULE = 1;
+	public static final int VIEW_SYLLABUSES = 2;
+	public static final int VIEW_TEACHERS= 3;
+	public static final int VIEW_DEFENDED = 4;
+	public static final int VIEW_TOPIC_PROPOSITIONS = 5;
+	public static final int VIEW_STUDY_PROGRAMMES = 5;
+	public static final int VIEW_DOCUMENTS = 5;
 	
 	private String[] mNavigationItems;
 	private String[] mNavigationItemsIcons;
@@ -39,6 +47,7 @@ public class MainActivity extends Activity {
     private CharSequence mTitle;
 	public IsodEEApplication theApplication;
 	private SearchView searchView;
+	private int activeView;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +73,8 @@ public class MainActivity extends Activity {
         initNavigationDrawer();
         
         if (savedInstanceState == null) {
-            selectItem(0);
+            selectItem(VIEW_NEWS);
+            activeView = VIEW_NEWS;
         }
 	}
 
@@ -99,11 +109,11 @@ public class MainActivity extends Activity {
         inflater.inflate(R.menu.main, menu);
         // Get the SearchView and set the searchable configuration
 	    SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-	    searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+	    searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 	    // Assumes current activity is the searchable activity
 	    searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+	    
 	    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-	
 	        @Override
 	        public boolean onQueryTextSubmit(String query) {
 	            return false;
@@ -124,7 +134,11 @@ public class MainActivity extends Activity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        if (!drawerOpen && activeView == VIEW_TEACHERS) {
+        	menu.findItem(R.id.action_search).setVisible(true);
+        } else {
+        	menu.findItem(R.id.action_search).setVisible(false);
+        }
         return super.onPrepareOptionsMenu(menu);
     }
     
@@ -209,14 +223,17 @@ public class MainActivity extends Activity {
     	Fragment fragment = null;
     	
     	switch (position) {
-			case 0:
+			case VIEW_NEWS:
 				fragment = new NewsListFragment();
+				activeView = VIEW_NEWS;
 				break;
-			case 3:
+			case VIEW_TEACHERS:
 				fragment = new TeachersFragment();
+				activeView = VIEW_TEACHERS;
 				break;
 			default:
 				fragment = new NewsListFragment();
+				activeView = VIEW_NEWS;
 				break;
 		}
 

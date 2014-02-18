@@ -66,6 +66,7 @@
     <string name="teacher_department_header">Organizational unit</string>
     
     <!-- Search -->
+    <string name="search">Search</string>
     <string name="search_hint">Teacher, organizational unit</string>
     
     <!-- Settings -->
