@@ -1,6 +1,6 @@
 package pl.pw.isodee;
 
-import pl.pw.isodee.models.NewsContent;
+import pl.pw.isodee.models.NewsFullContent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
@@ -16,13 +16,13 @@ public class NewsActivity extends Activity {
 	public static final String KEY_NEWS = "news_pos";
 	
 	private IsodEEApplication theApplication;
-	private NewsContent news;
+	private NewsFullContent news;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		theApplication = (IsodEEApplication) getApplication();
-		setContentView(R.layout.activity_news);
+		setContentView(R.layout.news_full_content);
     
 	    getActionBar().setDisplayHomeAsUpEnabled(true);
 	    

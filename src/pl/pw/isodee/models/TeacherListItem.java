@@ -3,18 +3,18 @@ package pl.pw.isodee.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Teacher {
+public class TeacherListItem {
 
 	private String lp;
 	private String title;
 	private String department;
 	private String name;
 	
-	public Teacher(JSONObject o) throws JSONException {
+	public TeacherListItem(JSONObject o) throws JSONException {
 		title = o.getString("t");
 	}
 	
-	public Teacher (int lp, String name, String title, String department) {
+	public TeacherListItem (int lp, String name, String title, String department) {
 		this.lp = "" + lp;
 		this.title = title;
 		this.name = name;

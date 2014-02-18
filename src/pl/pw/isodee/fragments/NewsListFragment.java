@@ -33,7 +33,7 @@ public class NewsListFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         	
-        lv = (ListView)inflater.inflate(R.layout.news_list, container, false);
+        lv = (ListView)inflater.inflate(R.layout.news_list_view, container, false);
         
         int newsListSize = theActivity.theApplication.getContent().getNewsLength();
         
@@ -42,7 +42,7 @@ public class NewsListFragment extends ListFragment {
 			fromNews[i] = theActivity.theApplication.getContent().getNewsByPos(i);
 		}
 
-        NewsAdapter mAdapter = new NewsAdapter(getActivity(), R.layout.news_fragment, fromNews);
+        NewsAdapter mAdapter = new NewsAdapter(getActivity(), R.layout.news_list_item, fromNews);
 
         lv.setAdapter(mAdapter);
 

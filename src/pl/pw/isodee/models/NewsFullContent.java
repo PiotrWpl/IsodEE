@@ -3,7 +3,7 @@ package pl.pw.isodee.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class NewsContent {
+public class NewsFullContent {
 
 	private int index;
 	private String title;
@@ -14,7 +14,7 @@ public class NewsContent {
 	private String htmlContent;
 	private String updateDate;
 	
-	public NewsContent(JSONObject o) throws JSONException {
+	public NewsFullContent(JSONObject o) throws JSONException {
 		index = o.getInt("x");
 		title = o.getString("t");
 		timestamp = o.getLong("d");
@@ -25,7 +25,7 @@ public class NewsContent {
 		}
 	}
 	
-	public NewsContent (String title, String date, String htmlContent, String updateDate, String author) {
+	public NewsFullContent (String title, String date, String htmlContent, String updateDate, String author) {
 		this.title = title;
 		this.date = date;
 		this.htmlContent = htmlContent;

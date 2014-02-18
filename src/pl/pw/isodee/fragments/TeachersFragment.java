@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pl.pw.isodee.MainActivity;
 import pl.pw.isodee.R;
-import pl.pw.isodee.models.Teacher;
+import pl.pw.isodee.models.TeacherListItem;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
@@ -41,9 +41,9 @@ public class TeachersFragment extends ListFragment {
     	if (this.query == null || !this.query.equals(query)) {
 	    	this.query = query;
 	    	
-	    	ArrayList<Teacher> teachersFiltered = new ArrayList<Teacher>();
+	    	ArrayList<TeacherListItem> teachersFiltered = new ArrayList<TeacherListItem>();
 	        for (int i = 0; i < theActivity.theApplication.getContent().getTeachersLength(); i++) {
-	        	Teacher teacher = theActivity.theApplication.getContent().getTeacherByPos(i);
+	        	TeacherListItem teacher = theActivity.theApplication.getContent().getTeacherByPos(i);
 	    		if (teacher.getName().toLowerCase().contains(query) || teacher.getDepartment().toLowerCase().contains(query)) {
 	    			teachersFiltered.add(teacher);
 	    		}
@@ -57,14 +57,14 @@ public class TeachersFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         	
-        View contentView = (View)inflater.inflate(R.layout.teachers_list, container, false);
+        View contentView = (View)inflater.inflate(R.layout.teachers_list_view, container, false);
            
-        ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+        ArrayList<TeacherListItem> teachers = new ArrayList<TeacherListItem>();
         for (int i = 0; i < theActivity.theApplication.getContent().getTeachersLength(); i++) {
         	teachers.add(theActivity.theApplication.getContent().getTeacherByPos(i));
 		}
         
-        TeacherAdapter mAdapter = new TeacherAdapter(getActivity(), R.layout.teacher_fragment, teachers);
+        TeacherAdapter mAdapter = new TeacherAdapter(getActivity(), R.layout.teacher_list_item, teachers);
         lv = (ListView)contentView.findViewById(android.R.id.list);
         lv.setAdapter(mAdapter);
 
@@ -83,16 +83,16 @@ public class TeachersFragment extends ListFragment {
 		});
 	}
     
-    public class TeacherAdapter extends ArrayAdapter<Teacher> {
+    public class TeacherAdapter extends ArrayAdapter<TeacherListItem> {
     	Context context; 
         int layoutResourceId;    
-        ArrayList<Teacher> data = null;
+        ArrayList<TeacherListItem> data = null;
         
-        public void setData(ArrayList<Teacher> data) {
+        public void setData(ArrayList<TeacherListItem> data) {
         	this.data = data;
         }
         
-        public TeacherAdapter(Context context, int layoutResourceId, ArrayList<Teacher> data) {
+        public TeacherAdapter(Context context, int layoutResourceId, ArrayList<TeacherListItem> data) {
             super(context, layoutResourceId, data);
             this.layoutResourceId = layoutResourceId;
             this.context = context;
@@ -123,7 +123,7 @@ public class TeachersFragment extends ListFragment {
                 holder = (TeacherHolder)row.getTag();
             }
 
-            Teacher teacher = data.get(position);
+            TeacherListItem teacher = data.get(position);
             holder.position.setText(teacher.getLp());
             holder.name.setText(teacher.getName());
             holder.title.setText(teacher.getTitle());

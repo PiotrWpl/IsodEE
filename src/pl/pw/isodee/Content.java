@@ -7,26 +7,26 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-import pl.pw.isodee.models.NewsContent;
+import pl.pw.isodee.models.NewsFullContent;
 import pl.pw.isodee.models.NewsListItem;
 //import pl.pw.isodmobile.model.Article;
 //import pl.pw.isodmobile.model.LecturerInfo;
 //import pl.pw.isodmobile.model.LecturersList;
 //import pl.pw.isodmobile.model.NewsList;
-import pl.pw.isodee.models.Teacher;
+import pl.pw.isodee.models.TeacherListItem;
 
 
 public class Content {
-	private Hashtable<String, NewsContent> newsContents;
+	private Hashtable<String, NewsFullContent> newsContents;
 //	private Hashtable<String, LecturersList> lecturers;
 //	private Hashtable<String, LecturerInfo> lecturersInfo;
 	private Hashtable<String, NewsListItem> newsList;
-	private Hashtable<String, Teacher> teachersList;
+	private Hashtable<String, TeacherListItem> teachersList;
 
 	public Content() {
-		newsContents = new Hashtable<String, NewsContent>();
+		newsContents = new Hashtable<String, NewsFullContent>();
 		newsList = new Hashtable<String, NewsListItem>();
-		teachersList = new Hashtable<String, Teacher>();
+		teachersList = new Hashtable<String, TeacherListItem>();
 //		lecturers = new Hashtable<String, LecturersList>();
 //		lecturersInfo = new Hashtable<String, LecturerInfo>();
 	}
@@ -38,11 +38,11 @@ public class Content {
 //		lecturersInfo.clear();	
 	}
 //	
-	public void putNewsContent(int pos, NewsContent article) {
+	public void putNewsContent(int pos, NewsFullContent article) {
 		newsContents.put("" + pos, article);
 	}
 //	
-	public NewsContent getNewsContentByPos(int pos) {
+	public NewsFullContent getNewsContentByPos(int pos) {
 		return newsContents.get("" + pos);
 	}
 	
@@ -50,7 +50,7 @@ public class Content {
 		return newsList.get("" + pos);
 	}
 	
-	public Teacher getTeacherByPos(int pos) {
+	public TeacherListItem getTeacherByPos(int pos) {
 		return teachersList.get("" + pos);
 	}
 	
@@ -86,7 +86,7 @@ public class Content {
 //		return lecturers.get("" + lecturerId);
 //	}
 
-	public void putTeacher(int idx, Teacher teacher) {
+	public void putTeacher(int idx, TeacherListItem teacher) {
 		teachersList.put("" + idx, teacher);
 	}
 	

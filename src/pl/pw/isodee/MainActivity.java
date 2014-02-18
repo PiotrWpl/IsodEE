@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
         theApplication = (IsodEEApplication) getApplication();
         
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
         
         ContentGenerator.newsListItems(theApplication.getContent());
         ContentGenerator.newsContentItems(theApplication.getContent());
