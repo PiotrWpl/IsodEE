@@ -225,7 +225,6 @@ public class MainActivity extends Activity {
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
         ft.replace(R.id.content_frame, fragment).commit();
-        
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);
         setTitle(mNavigationItems[position]);
