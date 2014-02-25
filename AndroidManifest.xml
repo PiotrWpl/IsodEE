@@ -43,6 +43,17 @@
                 android:value="pl.pw.isodee.MainActivity" />
         </activity>
         <activity
+                android:name="pl.pw.isodee.TeacherActivity"
+                android:label="@string/teachers_title"
+                android:parentActivityName="pl.pw.isodee.MainActivity"
+                >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="pl.pw.isodee.MainActivity" />
+        </activity>
+        <activity
             android:name="pl.pw.isodee.SettingsActivity"
             android:label="@string/settings_title"
             android:parentActivityName="pl.pw.isodee.MainActivity" >

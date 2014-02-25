@@ -78,7 +78,7 @@ public class TeachersFragment extends ListFragment {
 
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg3) {
-//				theActivity.showNews(position);
+				theActivity.showTeacher(position);
 			}
 		});
 	}

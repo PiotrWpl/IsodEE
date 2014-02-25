@@ -209,7 +209,13 @@ public class MainActivity extends Activity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
-    
+
+    public void showTeacher(int position) {
+        Intent myIntent = new Intent(this, TeacherActivity.class);
+        myIntent.putExtra(TeacherActivity.KEY_NEWS, position);
+        this.startActivity(myIntent);
+    }
+
     /* The click listner for ListView in the navigation drawer */
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
