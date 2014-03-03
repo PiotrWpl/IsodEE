@@ -8,6 +8,7 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
+
     <application
         android:name="pl.pw.isodee.IsodEEApplication"
         android:allowBackup="true"
@@ -64,5 +65,7 @@
                 android:value="pl.pw.isodee.MainActivity" />
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

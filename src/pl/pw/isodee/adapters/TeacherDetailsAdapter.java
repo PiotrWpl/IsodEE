@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import pl.pw.isodee.fragments.TeacherDetailsFragment;
+import pl.pw.isodee.fragments.TeacherMainDetailsFragment;
 
 public class TeacherDetailsAdapter extends FragmentPagerAdapter {
     protected static String[] CONTENT = null;
@@ -22,7 +23,12 @@ public class TeacherDetailsAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return TeacherDetailsFragment.newInstance(CONTENT[position % CONTENT.length]);
+        switch (position) {
+            case 0:
+                return TeacherMainDetailsFragment.newInstance(CONTENT[position % CONTENT.length]);
+        }
+
+        return TeacherMainDetailsFragment.newInstance(CONTENT[position % CONTENT.length]);
     }
 
     @Override
