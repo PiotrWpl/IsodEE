@@ -1,19 +1,12 @@
 package pl.pw.isodee;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
-import android.widget.TextView;
 import pl.pw.isodee.models.NewsFullContent;
 import com.viewpagerindicator.LinePageIndicator;
 import android.support.v4.view.ViewPager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import pl.pw.isodee.adapters.*;
 import android.support.v4.app.FragmentActivity;
 
@@ -65,7 +58,7 @@ public class TeacherActivity extends FragmentActivity {
 	private void showTeacher () {
         //Set the pager with an adapter
         ViewPager pager = (ViewPager)findViewById(R.id.pager);
-        pager.setAdapter(new TestFragmentAdapter(getSupportFragmentManager()));
+        pager.setAdapter(new TeacherDetailsAdapter(getSupportFragmentManager()));
 
         //Bind the title indicator to the adapter
         LinePageIndicator titleIndicator = (LinePageIndicator)findViewById(R.id.indicator);

@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-public final class TestFragment extends Fragment {
-    private static final String KEY_CONTENT = "TestFragment:Content";
+public final class TeacherDetailsFragment extends Fragment {
+    private static final String KEY_CONTENT = "TeacherDetailsFragment:Content";
 
-    public static TestFragment newInstance(String content) {
-        TestFragment fragment = new TestFragment();
+    public static TeacherDetailsFragment newInstance(String content) {
+        TeacherDetailsFragment fragment = new TeacherDetailsFragment();
 
 //        StringBuilder builder = new StringBuilder();
 //        for (int i = 0; i < 20; i++) {
@@ -42,12 +42,12 @@ public final class TestFragment extends Fragment {
         TextView text = new TextView(getActivity());
         text.setGravity(Gravity.CENTER);
         text.setText(mContent);
-        text.setTextSize(20 * getResources().getDisplayMetrics().density);
+        text.setTextSize(14*getResources().getDisplayMetrics().density);
         text.setPadding(20, 20, 20, 20);
 
         LinearLayout layout = new LinearLayout(getActivity());
         layout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-        layout.setGravity(Gravity.CENTER);
+//        layout.setGravity(Gravity.CENTER);
         layout.addView(text);
 
         return layout;
