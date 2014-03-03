@@ -64,6 +64,18 @@
     <string name="teacher_name_header">Firstname and lastname</string>
     <string name="teacher_title_header">Title</string>
     <string name="teacher_department_header">Organizational unit</string>
+
+    <!-- Teacher details -->
+    <string name="teacher_details_title">Teacher information</string>
+    <string-array name="teacher_details_pages">
+        <item>%NAME%</item>
+        <item>Office hours in %SEMESTER%</item>
+        <item>Courses taught in semester %SEMESTER%</item>
+        <item>Plan on full-time studies in semester %SEMESTER%</item>
+        <item>Plan on extramural studies in semester %SEMESTER%</item>
+        <item>Available proposals of dissertation subjects and projects:</item>
+        <item>Defended dissertations and projects:</item>
+    </string-array>
     
     <!-- Search -->
     <string name="search">Search</string>

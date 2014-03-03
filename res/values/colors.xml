@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="front_background">#F4F7FB</color>
+    <color name="default_line_indicator_selected_color">#4E7D0E</color>
 </resources>

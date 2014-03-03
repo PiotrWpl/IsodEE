@@ -12,4 +12,6 @@
 	<dimen name="news_title">14sp</dimen>
 	<dimen name="news_date">12sp</dimen>
 	<dimen name="news_content">16sp</dimen>
+
+    <dimen name="default_line_indicator_stroke_width">3dp</dimen>
 </resources>

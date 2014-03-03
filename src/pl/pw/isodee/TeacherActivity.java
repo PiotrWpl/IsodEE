@@ -34,7 +34,7 @@ public class TeacherActivity extends FragmentActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getActionBar().setTitle(getString(R.string.teachers_title));
+		getActionBar().setTitle(getString(R.string.teacher_details_title));
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class TeacherActivity extends FragmentActivity {
 	private void showTeacher () {
         //Set the pager with an adapter
         ViewPager pager = (ViewPager)findViewById(R.id.pager);
-        pager.setAdapter(new TeacherDetailsAdapter(getSupportFragmentManager()));
+        pager.setAdapter(new TeacherDetailsAdapter(getSupportFragmentManager(), this));
 
         //Bind the title indicator to the adapter
         LinePageIndicator titleIndicator = (LinePageIndicator)findViewById(R.id.indicator);
