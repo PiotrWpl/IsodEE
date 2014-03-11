@@ -9,9 +9,9 @@
         <!-- API 19 theme customizations can go here. -->
         <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
     </style>
-    
+
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
-    	<item name="android:fontFamily">sans-serif-light</item>
-	</style>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 
 </resources>

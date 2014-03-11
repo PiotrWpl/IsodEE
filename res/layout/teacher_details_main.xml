@@ -1,26 +1,186 @@
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/default_padding"
-        android:background="@drawable/front_rounded"
-        >
-
-<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_padding"
+    android:background="@drawable/front_rounded">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="@dimen/default_padding">
-		<LinearLayout  android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-	    <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/teacher_name"
-	        android:textSize="@dimen/news_title" />
-    <ImageView android:id="@+id/teacher_photo" android:layout_width="match_parent" android:layout_height="match_parent"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacher_name"
+                    android:text="@string/teacher_details_title"
+                    android:textSize="@dimen/text_very_big"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/default_padding"/>
 
-        </LinearLayout>
-</ScrollView>
+                <ImageView
+                    android:id="@+id/teacher_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:minHeight="200dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacher_department_name"
+                    android:text="@string/teacher_department"
+                    android:textSize="@dimen/text_small"
+                    android:paddingTop="@dimen/default_padding"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+                    android:textAllCaps="true"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ccc"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacher_department_content"
+                    android:text="Instytut Elektrotechniki Teoretycznej i Systemów Informacyjno-Pomiarowych\nWydział Elektryczny"
+                    android:textSize="@dimen/text_medium"
+                    android:paddingBottom="@dimen/default_padding"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_name"
+                        android:text="E-mail"
+                        android:textSize="@dimen/text_small"
+                        android:paddingTop="@dimen/default_padding"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="true"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ccc"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_content"
+                        android:text="robert.szmurlo@ee.pw.edu.pl"
+                        android:textSize="@dimen/text_medium"
+                        android:paddingBottom="@dimen/default_padding"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_name"
+                        android:text="Phone"
+                        android:textSize="@dimen/text_small"
+                        android:paddingTop="@dimen/default_padding"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="true"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ccc"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_content"
+                        android:text="22 234 76 14"
+                        android:textSize="@dimen/text_medium"
+                        android:paddingBottom="@dimen/default_padding"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_name"
+                        android:text="Room"
+                        android:textSize="@dimen/text_small"
+                        android:paddingTop="@dimen/default_padding"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="true"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ccc"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_content"
+                        android:text="GE 228"
+                        android:textSize="@dimen/text_medium"
+                        android:paddingBottom="@dimen/default_padding"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/WWW"
+                        android:text="WWW"
+                        android:textSize="@dimen/text_small"
+                        android:paddingTop="@dimen/default_padding"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="true"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ccc"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_content"
+                        android:text="http://www.iem.pw.edu.pl/~szmurlor"
+                        android:textSize="@dimen/text_medium"
+                        android:paddingBottom="@dimen/default_padding"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_name"
+                        android:text="Corresponding address"
+                        android:textSize="@dimen/text_small"
+                        android:paddingTop="@dimen/default_padding"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textAllCaps="true"/>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#ccc"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teacher_department_content"
+                        android:text="IETiSIP - Robert Szmurło\nKoszykowa 75\n00-662 Warszawa"
+                        android:textSize="@dimen/text_medium"
+                        android:paddingBottom="@dimen/default_padding"/>
+            </LinearLayout>
+    </ScrollView>
 </LinearLayout>

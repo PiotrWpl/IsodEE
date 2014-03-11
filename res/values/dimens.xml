@@ -14,4 +14,10 @@
 	<dimen name="news_content">16sp</dimen>
 
     <dimen name="default_line_indicator_stroke_width">3dp</dimen>
+    <dimen name="teacher_title">18sp</dimen>
+
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">14dp</dimen>
+    <dimen name="text_big">16dp</dimen>
+    <dimen name="text_very_big">18dp</dimen>
 </resources>

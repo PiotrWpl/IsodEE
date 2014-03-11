@@ -67,6 +67,7 @@
 
     <!-- Teacher details -->
     <string name="teacher_details_title">Teacher information</string>
+    <string name="teacher_department">@string/teacher_department_header</string>
     <string-array name="teacher_details_pages">
         <item>%NAME%</item>
         <item>Office hours in %SEMESTER%</item>

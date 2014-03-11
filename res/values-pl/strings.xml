@@ -23,6 +23,7 @@
 
     <!-- Teacher details -->
     <string name="teacher_details_title">Informacje o nauczycielu akademickim</string>
+    <string name="teacher_department">Jednostka organizacyjna</string>
     <string-array name="teacher_details_pages">
         <item>%NAME%</item>
         <item>Konsultacje w %SEMESTER%</item>
