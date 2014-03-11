@@ -66,7 +66,7 @@ public class NewsActivity extends Activity {
 		updated.setText(getString(R.string.news_last_modified) + news.getUpdateDate() + getString(R.string.news_last_modified_link) + news.getAuthor());
 		
 		WebView content = (WebView) findViewById(R.id.news_content);
-		String htmlContent = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head><body style=\"margin: 0 10px; padding: 0;\">" + news.getHtmlContent() + "</body></html>";
+		String htmlContent = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /></head><body style=\"margin: 0; padding: 0;\">" + news.getHtmlContent() + "</body></html>";
 		content.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
 		content.setBackgroundColor(Color.TRANSPARENT);
 

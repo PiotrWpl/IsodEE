@@ -1,53 +1,50 @@
-<ScrollView 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".NewsActivity"
-    android:background="@drawable/blue_gradient" >
-    
-	<RelativeLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:background="@color/front_background"
-	    android:layout_margin="@dimen/default_padding"
-		android:minHeight="600dp" >
-		
-	    <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/news_title"
-	        android:paddingTop="@dimen/default_padding"
-	        android:paddingLeft="@dimen/default_padding"
-	        android:paddingRight="@dimen/default_padding"
-	        android:textSize="@dimen/news_title" />
-	    
-	    <TextView
-		    android:layout_below="@id/news_title"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/news_date"
-	        android:paddingLeft="@dimen/default_padding"
-	        android:paddingRight="@dimen/default_padding"
-	        android:textColor="@android:color/darker_gray"
-	        android:textSize="@dimen/news_date" />
-		
-		<TextView
-		    android:layout_below="@id/news_date"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/news_updated"
-	        android:paddingLeft="@dimen/default_padding"
-	        android:paddingRight="@dimen/default_padding"
-	        android:paddingBottom="@dimen/default_padding"
-	        android:textColor="@android:color/darker_gray"
-	        android:textSize="@dimen/news_date" />
-	    
-		<WebView
-		    android:layout_below="@id/news_updated"
-		    android:id="@+id/news_content"
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"/>
-		
-	</RelativeLayout>
-</ScrollView>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_padding"
+        android:background="@drawable/front_rounded">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".NewsActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/news_title"
+                android:textSize="@dimen/news_title" />
+
+            <TextView
+                android:layout_below="@id/news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/news_date"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/news_date" />
+
+            <TextView
+                android:layout_below="@id/news_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/news_updated"
+                android:paddingBottom="@dimen/default_padding"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/news_date" />
+
+            <WebView
+                android:layout_below="@id/news_updated"
+                android:id="@+id/news_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
